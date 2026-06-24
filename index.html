@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abdul Sulu-Gambari — BI Dashboard Portfolio</title>
+  <style>
+    :root {
+      --teal:   #111111;
+      --teal-light: #f0f0f0;
+      --dark:   #111111;
+      --mid:    #374151;
+      --muted:  #6b7280;
+      --border: #e5e7eb;
+      --bg:     #f9fafb;
+      --white:  #ffffff;
+      --accent: #111111;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: #222222; line-height: 1.6; }
+
+    /* NAV */
+    nav { background: #000000; padding: 1rem 2rem; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
+    nav .logo { color: var(--white); font-weight: 700; font-size: 1rem; letter-spacing: .05em; }
+    nav .logo span { color: var(--teal); }
+    nav ul { list-style: none; display: flex; gap: 1.5rem; }
+    nav ul a { color: #d1d5db; text-decoration: none; font-size: .85rem; transition: color .2s; }
+    nav ul a:hover { color: var(--white); }
+
+    /* HERO */
+    .hero { background: linear-gradient(135deg, #000000 0%, #111111 60%, #1a1a1a 100%); color: var(--white); padding: 5rem 2rem 4rem; text-align: center; }
+    .hero h1 { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800; letter-spacing: -.02em; }
+    .hero h1 span { color: #ffffff; }
+    .hero p { margin-top: .75rem; color: #9ca3af; font-size: 1.1rem; }
+    .badges { display: flex; flex-wrap: wrap; gap: .75rem; justify-content: center; margin-top: 1.75rem; }
+    .badge { background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.15); color: var(--white); padding: .45rem 1rem; border-radius: 999px; font-size: .82rem; text-decoration: none; transition: background .2s; }
+    .badge:hover { background: rgba(255,255,255,.15); }
+    .badge.teal { background: var(--teal); border-color: var(--teal); }
+
+    /* METRICS STRIP */
+    .metrics { background: var(--teal); color: var(--white); padding: 2.5rem 2rem; }
+    .metrics-grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.5rem; }
+    .metric-card { text-align: center; }
+    .metric-card .num { font-size: 2rem; font-weight: 800; line-height: 1; }
+    .metric-card .label { font-size: .8rem; opacity: .85; margin-top: .3rem; }
+
+    /* SECTIONS */
+    .container { max-width: 1060px; margin: 0 auto; padding: 0 1.5rem; }
+    section { padding: 4rem 0; }
+    section + section { border-top: 1px solid var(--border); }
+
+    h2.section-title { font-size: 1.6rem; font-weight: 800; color: var(--dark); margin-bottom: 1.5rem; display: flex; align-items: center; gap: .6rem; }
+    h2.section-title::after { content: ''; flex: 1; height: 2px; background: var(--border); }
+
+    .industry-label { display: inline-block; background: var(--teal-light); color: var(--teal); font-size: .75rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: .3rem .75rem; border-radius: 4px; margin-bottom: 2rem; }
+
+    /* DASHBOARD CARDS */
+    .dashboard-grid { display: grid; gap: 2.5rem; }
+    .dashboard-card { background: var(--white); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,.06); }
+    .dashboard-card img { width: 100%; display: block; border-bottom: 1px solid var(--border); }
+    .card-body { padding: 1.5rem; }
+    .card-meta { display: flex; gap: .6rem; flex-wrap: wrap; margin-bottom: .75rem; }
+    .tag { font-size: .72rem; font-weight: 600; padding: .25rem .65rem; border-radius: 4px; letter-spacing: .04em; text-transform: uppercase; }
+    .tag-tool { background: #e5e7eb; color: #111111; }
+    .tag-industry { background: var(--teal-light); color: var(--teal); }
+    .card-body h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: .5rem; }
+    .card-body .problem { font-size: .9rem; color: var(--mid); }
+    .card-body .problem strong { color: var(--dark); }
+
+    /* CODE BLOCKS */
+    details { margin-top: 1rem; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+    details summary { padding: .7rem 1rem; font-size: .85rem; font-weight: 600; cursor: pointer; background: #f3f4f6; color: var(--mid); user-select: none; }
+    details summary:hover { background: #e5e7eb; }
+    details pre { background: #1e1e2e; color: #cdd6f4; font-size: .78rem; padding: 1.25rem; overflow-x: auto; line-height: 1.6; }
+    details code { font-family: 'Cascadia Code', 'Fira Code', monospace; }
+    .kw { color: #cba6f7; } .fn { color: #89b4fa; } .st { color: #a6e3a1; } .cm { color: #585b70; font-style: italic; }
+
+    /* SKILLS TABLE */
+    .skills-table { width: 100%; border-collapse: collapse; font-size: .9rem; }
+    .skills-table th { text-align: left; padding: .6rem 1rem; background: #f3f4f6; color: var(--muted); font-weight: 600; font-size: .75rem; text-transform: uppercase; letter-spacing: .06em; }
+    .skills-table td { padding: .75rem 1rem; border-top: 1px solid var(--border); }
+    .bar-wrap { background: #e5e7eb; border-radius: 999px; height: 8px; width: 180px; overflow: hidden; }
+    .bar-fill { height: 100%; border-radius: 999px; background: var(--teal); }
+
+    /* TABLEAU EMBED */
+    .live-banner { background: linear-gradient(135deg, #000000, #1a1a1a); border-radius: 12px; padding: 2rem; color: var(--white); text-align: center; margin-bottom: 2rem; }
+    .live-banner h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: .5rem; }
+    .live-banner p { color: #9ca3af; font-size: .9rem; margin-bottom: 1rem; }
+    .live-banner a { display: inline-block; background: var(--teal); color: var(--white); padding: .6rem 1.4rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: .9rem; }
+    .tableau-wrap { border-radius: 12px; overflow: hidden; border: 1px solid var(--border); background: var(--white); }
+    .tableauPlaceholder { position: relative; }
+
+    /* ABOUT */
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+    @media (max-width: 640px) { .about-grid { grid-template-columns: 1fr; } nav ul { display: none; } .metrics-grid { grid-template-columns: repeat(2, 1fr); } }
+    .about-card { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; }
+    .about-card h3 { font-size: 1rem; font-weight: 700; color: var(--teal); margin-bottom: .75rem; }
+    .about-card p { font-size: .9rem; color: var(--mid); }
+
+    /* CTA */
+    .cta { background: #000000; color: var(--white); text-align: center; padding: 4rem 2rem; }
+    .cta h2 { font-size: 2rem; font-weight: 800; }
+    .cta p { color: #9ca3af; margin-top: .5rem; margin-bottom: 1.5rem; }
+    .cta-links { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; }
+    .cta-links a { background: var(--teal); color: var(--white); padding: .7rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: .9rem; }
+    .cta-links a.ghost { background: transparent; border: 1px solid rgba(255,255,255,.3); }
+    .cta-links a.ghost:hover { background: rgba(255,255,255,.08); }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Abdul <span>Sulu-Gambari</span></div>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#dashboards">Dashboards</a></li>
+    <li><a href="#live">Live Demo</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>BI Dashboard <span>Portfolio</span></h1>
+  <p>Business Intelligence &amp; Data Analyst — Power BI · Tableau · Looker Studio</p>
+  <div class="badges">
+    <a class="badge teal" href="mailto:asgambari@gmail.com">✉ asgambari@gmail.com</a>
+    <a class="badge" href="tel:+4915213879989">📞 +49 1521 387 9989</a>
+    <a class="badge" href="#">💼 LinkedIn</a>
+  </div>
+</div>
+
+<!-- METRICS -->
+<div class="metrics">
+  <div class="metrics-grid">
+    <div class="metric-card"><div class="num">21</div><div class="label">Dashboards Built</div></div>
+    <div class="metric-card"><div class="num">4</div><div class="label">Industries Covered</div></div>
+    <div class="metric-card"><div class="num">15,883</div><div class="label">Devices Tracked</div></div>
+    <div class="metric-card"><div class="num">€3.7M+</div><div class="label">Revenue Analysed</div></div>
+    <div class="metric-card"><div class="num">5.87M</div><div class="label">Flights Monitored</div></div>
+    <div class="metric-card"><div class="num">382M+</div><div class="label">Ad Impressions Tracked</div></div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- ABOUT -->
+  <section id="about">
+    <h2 class="section-title">⭐ About Me</h2>
+    <p style="color:var(--mid); margin-bottom:1.5rem; font-size:.95rem;">I am an accomplished <strong>Business Intelligence and Data Analyst</strong> with extensive experience driving strategic decisions through advanced data analytics and visualization. I specialize in turning complex, raw datasets into intuitive, high-impact dashboards — collaborating closely with cross-functional teams to gather business requirements and deliver actionable insights that directly improve operational efficiency.</p>
+    <div class="about-grid">
+      <div class="about-card">
+        <h3>🎯 Vision</h3>
+        <p>To transform complex, raw datasets into intuitive, high-impact visual stories that bridge the gap between technical data and strategic action — empowering organizations to make fast, informed, data-driven decisions.</p>
+      </div>
+      <div class="about-card">
+        <h3>🚀 Mission</h3>
+        <p>To change how organizations interact with data by building a culture of seamless self-service business intelligence — designing solutions that are visually engaging, highly functional, and accurate at every stakeholder level.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <h2 class="section-title">🛠️ Professional Skills</h2>
+    <table class="skills-table">
+      <thead><tr><th>Tool</th><th>Level</th><th>Proficiency</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Power BI</strong></td><td>Advanced</td><td><div class="bar-wrap"><div class="bar-fill" style="width:85%"></div></div></td></tr>
+        <tr><td><strong>Tableau</strong></td><td>Advanced</td><td><div class="bar-wrap"><div class="bar-fill" style="width:80%"></div></div></td></tr>
+        <tr><td><strong>Google Looker Studio</strong></td><td>Advanced</td><td><div class="bar-wrap"><div class="bar-fill" style="width:78%"></div></div></td></tr>
+        <tr><td><strong>Metabase</strong></td><td>Intermediate</td><td><div class="bar-wrap"><div class="bar-fill" style="width:50%"></div></div></td></tr>
+        <tr><td><strong>Adobe Analytics</strong></td><td>Intermediate</td><td><div class="bar-wrap"><div class="bar-fill" style="width:55%"></div></div></td></tr>
+        <tr><td><strong>Salesforce CRMA+</strong></td><td>Intermediate</td><td><div class="bar-wrap"><div class="bar-fill" style="width:48%"></div></div></td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- DASHBOARDS -->
+  <section id="dashboards">
+    <h2 class="section-title">📈 Portfolio Dashboards</h2>
+
+    <!-- INSURANCE -->
+    <div class="industry-label">🏥 Insurance &amp; Claims</div>
+    <div class="dashboard-grid">
+
+      <div class="dashboard-card">
+        <img src="images/PowerBI_01_KPI_Performance_Overview.jpg" alt="KPI Performance Overview" />
+        <div class="card-body">
+          <div class="card-meta"><span class="tag tag-tool">Power BI</span><span class="tag tag-industry">Insurance</span></div>
+          <h3>KPI Performance Overview</h3>
+          <p class="problem"><strong>Problem solved:</strong> Insurance operations teams were manually compiling claims data from multiple sources into static spreadsheets, making live KPI monitoring impossible. This dashboard unified all claims and policy data into a single real-time view, enabling faster decisions on cost reserves and partner commissions.</p>
+          <details><summary>📐 Key DAX Measures</summary><pre><code><span class="cm">-- Loss Ratio: claims cost paid as % of earned premium</span>
+<span class="kw">Loss Ratio (%) =</span>
+<span class="fn">DIVIDE</span>(
+    <span class="fn">SUM</span>(Claims[ClaimCostPaid]),
+    <span class="fn">SUM</span>(Policies[EarnedPremium]), <span class="st">0</span>
+) * <span class="st">100</span>
+
+<span class="cm">-- Policy MoM Change (Waterfall)</span>
+<span class="kw">Policy MoM Change =</span>
+<span class="kw">VAR</span> CurrentMonth = <span class="fn">SUM</span>(Policies[ActivePolicies])
+<span class="kw">VAR</span> PriorMonth =
+    <span class="fn">CALCULATE</span>(
+        <span class="fn">SUM</span>(Policies[ActivePolicies]),
+        <span class="fn">DATEADD</span>(Policies[Date], <span class="st">-1</span>, MONTH)
+    )
+<span class="kw">RETURN</span> CurrentMonth - PriorMonth</code></pre></details>
+        </div>
+      </div>
+
+      <div class="dashboard-card">
+        <img src="images/Tableau_01_Renewal_Repricing_Report.jpg" alt="Renewal Repricing Report" />
+        <div class="card-body">
+          <div class="card-meta"><span class="tag tag-tool">Tableau</span><span class="tag tag-industry">Insurance</span></div>
+          <h3>Renewal Repricing Report</h3>
+          <p class="problem"><strong>Problem solved:</strong> Renewal teams had no visibility into which policies were at risk of lapsing after repricing. This report surfaced renewal trends by month and policy status, allowing underwriters to prioritise outreach before cancellation windows closed.</p>
+        </div>
+      </div>
+
+      <div class="dashboard-card">
+        <img src="images/Tableau_02_BDX_Status_Report.jpg" alt="BDX Status Report" />
+        <div class="card-body">
+          <div class="card-meta"><span class="tag tag-tool">Tableau</span><span class="tag tag-industry">Insurance</span></div>
+          <h3>BDX Status Report</h3>
+          <p class="problem"><strong>Problem solved:</strong> Partner data file ingestion was tracked manually via email chains, causing delays in identifying failed or missing submissions. This dashboard automated status monitoring across all partners and source types, significantly reducing data ingestion delays.</p>
+        </div>
+      </div>
+
+      <div class="dashboard-card">
+        <img src="images/Tableau_03_Flagged_BDX_Files.jpg" alt="Flagged BDX Files" />
+        <div class="card-body">
+          <div class="card-meta"><span class="tag tag-tool">Tableau</span><span class="tag tag-industry">Insurance</span></div>
+          <h3>Flagged BDX Files</h3>
+          <p class="problem"><strong>Problem solved:</strong> When BDX files were flagged for errors, operations teams had no structured way to prioritise remediation. This dashboard ranked flagged files by days overdue and error type, enabling teams to resolve the most critical data issues first.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- AVIATION -->
+    <div class="industry-label" style="margin-top:3rem;">✈️ Aviation</div>
+    <div class="dashboard-grid">
+
+      <div class="dashboard-card">
+        <img src="images/Tableau_04_Financial_Performance.jpg" alt="Financial Performance" />
+        <div class="card-body">
+          <div class="card-meta"><span class="tag tag-tool">Tableau</span><span class="tag tag-industry">Aviation</span></div>
+          <h3>Financial Performance</h3>
+          <p class="problem"><strong>Problem solved:</strong> Aviation finance teams compared airline performance across disconnected spreadsheets with no standard metric definitions. This dashboard consolidated revenue, operating margin, CASK, RASK, and load factor across 5 airlines into one comparable view.</p>
+        </div>
+      </div>
+
+      <div class="dashboard-card">
+        <img src="images/Tableau_05_Sustainability_and_Efficiency.jpg" alt="Sustainability and Efficiency" />
+        <div class="card-body">
+          <div class="card-meta"><span class="tag tag-tool">Tableau</span><span class="tag tag-industry">Aviation</span></div>
+          <h3>Sustainability &amp; Efficiency</h3>
+          <p class="problem"><strong>Problem solved:</strong> There was no centralised view linking fuel consumption, CO2 intensity, and SAF adoption by region. This dashboard gave sustainability teams a clear picture of where efficiency gains and SAF blending were having the most impact.</p>
+        </div>
+      </div>
+
+      <div class="dashboard-card">
+        <img src="images/Tableau_06_Quality_and_Reliability.jpg" alt="Quality and Reliability" />
+        <div class="card-body">
+          <div class="card-meta"><span class="tag tag-tool">Tableau</span><span class="tag tag-industry">Aviation</span></div>
+          <h3>Quality &amp; Reliability</h3>
+          <p class="problem"><strong>Problem solved:</strong> Operations managers needed a consistent way to benchmark on-time performance, cancellation rates, and customer satisfaction across multiple airlines. This dashboard standardised KPI definitions and enabled direct peer comparison in one view.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ECOMMERCE -->
+    <div class="industry-label" style="margin-top:3rem;">🛒 E-Commerce</div>
+    <div class="dashboard-grid">
+
+      <div class="dashboard-card">
+        <img src="images/LookerStudio_01_Profitability.jpg" alt="Profitability" />
+        <div class="card-body">
+          <div class="card-meta"><span class="tag tag-tool">Looker Studio</span><span class="tag tag-industry">E-Commerce</span></div>
+          <h3>Profitability</h3>
+          <p class="problem"><strong>Problem solved:</strong> E-commerce managers were spending hours weekly pulling Shopify reports manually and cross-referencing them in Excel. This dashboard connected directly to Shopify data to automate profitability reporting, surfacing order value trends and traffic source ROI at a glance.</p>
+        </div>
+      </div>
+
+      <div class="dashboard-card">
+        <img src="images/LookerStudio_02_Site_and_Behaviour.jpg" alt="Site and Behaviour" />
+        <div class="card-body">
+          <div class="card-meta"><span class="tag tag-tool">Looker Studio</span><span class="tag tag-industry">E-Commerce</span></div>
+          <h3>Site and Behaviour</h3>
+          <p class="problem"><strong>Problem solved:</strong> The marketing team lacked a unified view of how different user cohorts were converting across devices and channels. By combining Google Analytics session data with revenue metrics, this dashboard helped identify underperforming acquisition channels and informed budget reallocation.</p>
+          <details><summary>📐 Key SQL Logic</summary><pre><code><span class="cm">-- New vs Returning user revenue contribution</span>
+<span class="kw">SELECT</span>
+    user_type,
+    <span class="fn">COUNT</span>(<span class="kw">DISTINCT</span> session_id)   <span class="kw">AS</span> sessions,
+    <span class="fn">SUM</span>(transaction_revenue)       <span class="kw">AS</span> total_revenue,
+    <span class="fn">ROUND</span>(
+        <span class="fn">SUM</span>(transactions) * <span class="st">1.0</span> /
+        <span class="fn">NULLIF</span>(<span class="fn">COUNT</span>(<span class="kw">DISTINCT</span> session_id), <span class="st">0</span>), <span class="st">4</span>
+    )                               <span class="kw">AS</span> conversion_rate
+<span class="kw">FROM</span> analytics_sessions
+<span class="kw">WHERE</span> date <span class="kw">BETWEEN</span> <span class="st">'2023-03-01'</span> <span class="kw">AND</span> <span class="st">'2023-04-30'</span>
+<span class="kw">GROUP BY</span> user_type
+<span class="kw">ORDER BY</span> total_revenue <span class="kw">DESC</span>;</code></pre></details>
+        </div>
+      </div>
+
+      <div class="dashboard-card">
+        <img src="images/LookerStudio_03_Acquisition_and_Advertising.jpg" alt="Acquisition and Advertising" />
+        <div class="card-body">
+          <div class="card-meta"><span class="tag tag-tool">Looker Studio</span><span class="tag tag-industry">E-Commerce</span></div>
+          <h3>Acquisition &amp; Advertising</h3>
+          <p class="problem"><strong>Problem solved:</strong> The paid media team managed Google Ads, Meta Ads, and Amazon campaigns in separate platform dashboards, making cross-channel budget comparison nearly impossible. This dashboard consolidated all three into one view, enabling direct ROAS comparison and faster spend optimisation.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- MARKETING -->
+    <div class="industry-label" style="margin-top:3rem;">📣 Marketing</div>
+    <div class="dashboard-grid">
+
+      <div class="dashboard-card">
+        <img src="images/PowerBI_06_Marketing_Report.jpg" alt="Marketing Report" />
+        <div class="card-body">
+          <div class="card-meta"><span class="tag tag-tool">Power BI</span><span class="tag tag-industry">Marketing</span></div>
+          <h3>Marketing Report (KUR &amp; Channel Performance)</h3>
+          <p class="problem"><strong>Problem solved:</strong> Senior marketing leadership had no single report showing cost efficiency (KUR), net revenue margin, and order volume across all channels simultaneously. This replaced a weekly manual slide deck with a live self-service report.</p>
+          <details><summary>📐 Key DAX Measures</summary><pre><code><span class="cm">-- KUR: Cost-to-Revenue ratio</span>
+<span class="kw">KUR (%) =</span>
+<span class="fn">DIVIDE</span>(<span class="fn">SUM</span>(Marketing[Cost]), <span class="fn">SUM</span>(Marketing[NettoSales]), <span class="st">0</span>) * <span class="st">100</span>
+
+<span class="cm">-- CVR: Conversion Rate</span>
+<span class="kw">CVR (%) =</span>
+<span class="fn">DIVIDE</span>(<span class="fn">SUM</span>(Marketing[Orders]), <span class="fn">SUM</span>(Marketing[Sessions]), <span class="st">0</span>) * <span class="st">100</span>
+
+<span class="cm">-- CPO Netto: Cost per Order</span>
+<span class="kw">CPO Netto =</span>
+<span class="fn">DIVIDE</span>(<span class="fn">SUM</span>(Marketing[Cost]), <span class="fn">SUM</span>(Marketing[Orders]), <span class="st">0</span>)</code></pre></details>
+        </div>
+      </div>
+
+      <div class="dashboard-card">
+        <img src="images/PowerBI_07_Performance_Overview.jpg" alt="Performance Overview" />
+        <div class="card-body">
+          <div class="card-meta"><span class="tag tag-tool">Power BI</span><span class="tag tag-industry">Marketing</span></div>
+          <h3>Performance Overview</h3>
+          <p class="problem"><strong>Problem solved:</strong> Cross-channel performance reviews required pulling from multiple source reports and rebuilding charts each week. This dashboard automated aggregation of sessions, impressions, and KUR KPIs by channel, cutting weekly reporting preparation time significantly.</p>
+        </div>
+      </div>
+
+      <div class="dashboard-card">
+        <img src="images/PowerBI_08_Organic_Search_Brand_Effects.jpg" alt="Organic Search Brand Effects" />
+        <div class="card-body">
+          <div class="card-meta"><span class="tag tag-tool">Power BI</span><span class="tag tag-industry">Marketing</span></div>
+          <h3>Organic Search &amp; Brand Effects</h3>
+          <p class="problem"><strong>Problem solved:</strong> The SEO and brand team needed a reliable way to track whether brand search volume was growing in response to campaigns. This dashboard tracked Google Search Console impressions and CTR over time, broken down by device, to measure brand visibility gains.</p>
+        </div>
+      </div>
+
+      <div class="dashboard-card">
+        <img src="images/PowerBI_09_Market_Research_Segments.jpg" alt="Market Research Segments" />
+        <div class="card-body">
+          <div class="card-meta"><span class="tag tag-tool">Power BI</span><span class="tag tag-industry">Marketing</span></div>
+          <h3>Market Research (Segments)</h3>
+          <p class="problem"><strong>Problem solved:</strong> Brand health survey data was delivered as raw CSVs with no ongoing trend view. This dashboard visualised ad awareness and brand awareness across target and non-target groups over time, enabling brand managers to correlate campaign spend with awareness shifts.</p>
+        </div>
+      </div>
+
+      <div class="dashboard-card">
+        <img src="images/PowerBI_10_Product_Activity_Revenue_Report.jpg" alt="Product Activity Revenue Report" />
+        <div class="card-body">
+          <div class="card-meta"><span class="tag tag-tool">Power BI</span><span class="tag tag-industry">Marketing</span></div>
+          <h3>Product Activity Revenue Report</h3>
+          <p class="problem"><strong>Problem solved:</strong> The product team lacked a clear view of how revenue from each cohort evolved after the signup date. By combining MoM revenue with cohort analysis, this dashboard helped identify which acquisition periods produced the highest long-term revenue.</p>
+          <details><summary>📐 Key DAX Measures</summary><pre><code><span class="cm">-- MoM Revenue Growth</span>
+<span class="kw">MoM Revenue % =</span>
+<span class="kw">VAR</span> Curr = <span class="fn">SUM</span>(Revenue[Amount])
+<span class="kw">VAR</span> Prior = <span class="fn">CALCULATE</span>(
+    <span class="fn">SUM</span>(Revenue[Amount]),
+    <span class="fn">DATEADD</span>(Revenue[PurchaseDate], <span class="st">-1</span>, MONTH))
+<span class="kw">RETURN</span> <span class="fn">DIVIDE</span>(Curr - Prior, Prior, <span class="st">0</span>) * <span class="st">100</span>
+
+<span class="cm">-- YoY Revenue Change</span>
+<span class="kw">YoY Revenue % =</span>
+<span class="fn">DIVIDE</span>(
+    <span class="fn">SUM</span>(Revenue[Amount]) -
+    <span class="fn">CALCULATE</span>(<span class="fn">SUM</span>(Revenue[Amount]),
+        <span class="fn">SAMEPERIODLASTYEAR</span>(Revenue[PurchaseDate])),
+    <span class="fn">CALCULATE</span>(<span class="fn">SUM</span>(Revenue[Amount]),
+        <span class="fn">SAMEPERIODLASTYEAR</span>(Revenue[PurchaseDate])), <span class="st">0</span>
+) * <span class="st">100</span></code></pre></details>
+        </div>
+      </div>
+
+      <div class="dashboard-card">
+        <img src="images/PowerBI_11_Marketing_Lead_Source.jpg" alt="Marketing Lead Source" />
+        <div class="card-body">
+          <div class="card-meta"><span class="tag tag-tool">Power BI</span><span class="tag tag-industry">Marketing</span></div>
+          <h3>Marketing Lead Source</h3>
+          <p class="problem"><strong>Problem solved:</strong> The demand generation team had no unified view of how leads progressed from creation through MQL to SQL. This dashboard connected CRM and marketing automation data to give leadership a live funnel view with historical trend analysis.</p>
+          <details><summary>📐 Key DAX Measures</summary><pre><code><span class="cm">-- MQL Conversion Rate</span>
+<span class="kw">MQL Conversion Rate =</span>
+<span class="fn">DIVIDE</span>(
+    <span class="fn">COUNTROWS</span>(<span class="fn">FILTER</span>(Leads, Leads[Stage] = <span class="st">"MQL"</span>)),
+    <span class="fn">COUNTROWS</span>(<span class="fn">FILTER</span>(Leads, Leads[Stage] = <span class="st">"Marketing Lead"</span>)),
+    <span class="st">0</span>) * <span class="st">100</span>
+
+<span class="cm">-- SQL Conversion Rate (from MQL)</span>
+<span class="kw">SQL Conversion Rate =</span>
+<span class="fn">DIVIDE</span>(
+    <span class="fn">COUNTROWS</span>(<span class="fn">FILTER</span>(Leads, Leads[Stage] = <span class="st">"SQL"</span>)),
+    <span class="fn">COUNTROWS</span>(<span class="fn">FILTER</span>(Leads, Leads[Stage] = <span class="st">"MQL"</span>)),
+    <span class="st">0</span>) * <span class="st">100</span></code></pre></details>
+        </div>
+      </div>
+
+      <div class="dashboard-card">
+        <img src="images/PowerBI_12_Plan_vs_Actuals.jpg" alt="Plan vs Actuals" />
+        <div class="card-body">
+          <div class="card-meta"><span class="tag tag-tool">Power BI</span><span class="tag tag-industry">Marketing</span></div>
+          <h3>Plan vs. Actuals</h3>
+          <p class="problem"><strong>Problem solved:</strong> Budget vs. performance reporting was done quarterly in static slides with no drill-down capability. This dashboard replaced those slides with a live view comparing planned vs. actual cost and leads by country and channel, enabling in-quarter course corrections.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- IOT -->
+    <div class="industry-label" style="margin-top:3rem;">📡 IoT &amp; Device Analytics</div>
+    <div class="dashboard-grid">
+
+      <div class="dashboard-card">
+        <img src="images/PowerBI_02_Device_Overview_Map.jpg" alt="Device Overview Map" />
+        <div class="card-body">
+          <div class="card-meta"><span class="tag tag-tool">Power BI</span><span class="tag tag-industry">IoT</span></div>
+          <h3>Device Overview Map</h3>
+          <p class="problem"><strong>Problem solved:</strong> Field operations teams had no geographic view of where devices were deployed or how they were performing. This dashboard mapped 15,883 devices across Europe with live SQF and EsNo metrics, enabling remote performance monitoring without manual field reports.</p>
+        </div>
+      </div>
+
+      <div class="dashboard-card">
+        <img src="images/PowerBI_03_KPI_Differences.jpg" alt="KPI Differences" />
+        <div class="card-body">
+          <div class="card-meta"><span class="tag tag-tool">Power BI</span><span class="tag tag-industry">IoT</span></div>
+          <h3>KPI Differences</h3>
+          <p class="problem"><strong>Problem solved:</strong> Quality engineers needed to quickly identify which devices had the largest deviation between two performance parameters. This dashboard ranked all devices by differential and flagged outliers, replacing a manual spreadsheet review process.</p>
+          <details><summary>📐 Key DAX Measures</summary><pre><code><span class="cm">-- SQF Difference between system A and B</span>
+<span class="kw">SQF Diff =</span> <span class="fn">SUM</span>(Devices[SQF_A]) - <span class="fn">SUM</span>(Devices[SQF_B])
+
+<span class="cm">-- Flag devices outside acceptable range</span>
+<span class="kw">Out of Range Flag =</span>
+<span class="fn">IF</span>(
+    <span class="fn">ABS</span>([SQF Diff]) > <span class="st">10</span> || <span class="fn">ABS</span>([EsNo Diff]) > <span class="st">5</span>,
+    <span class="st">"Out of Range"</span>, <span class="st">"Within Range"</span>
+)
+
+<span class="cm">-- Rank by highest SQF Diff</span>
+<span class="kw">Highest SQF Diff =</span>
+<span class="fn">RANKX</span>(
+    <span class="fn">ALL</span>(Devices[SerialNumber]),
+    [SQF Diff], , DESC, DENSE
+)</code></pre></details>
+        </div>
+      </div>
+
+      <div class="dashboard-card">
+        <img src="images/PowerBI_04_SQF_Intervals.jpg" alt="SQF Intervals" />
+        <div class="card-body">
+          <div class="card-meta"><span class="tag tag-tool">Power BI</span><span class="tag tag-industry">IoT</span></div>
+          <h3>SQF Intervals</h3>
+          <p class="problem"><strong>Problem solved:</strong> Engineers needed to understand the statistical distribution of device performance to set quality thresholds. The bell-curve visualisation confirmed whether device performance was normally distributed and identified how many devices fell outside the acceptable interval range.</p>
+        </div>
+      </div>
+
+      <div class="dashboard-card">
+        <img src="images/PowerBI_05_KPI_Performances.jpg" alt="KPI Performances" />
+        <div class="card-body">
+          <div class="card-meta"><span class="tag tag-tool">Power BI</span><span class="tag tag-industry">IoT</span></div>
+          <h3>KPI Performances</h3>
+          <p class="problem"><strong>Problem solved:</strong> Tracking whether device quality was consistent across a large fleet required comparing two measurement parameters (A and B) simultaneously across thousands of serial numbers. This dashboard enabled engineers to spot systematic deviations at scale.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIVE TABLEAU -->
+  <section id="live">
+    <h2 class="section-title">🌐 Live Interactive Dashboard</h2>
+    <div class="live-banner">
+      <h3>Aviation Report — Published on Tableau Public</h3>
+      <p>This is a fully interactive live report. Explore filters, drill-downs, and tooltips directly below.</p>
+      <a href="https://public.tableau.com/views/AviationReport_17793133361700/Report?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link" target="_blank">Open Full Screen ↗</a>
+    </div>
+    <div class="tableau-wrap">
+      <div class='tableauPlaceholder' id='viz1782291917921' style='position: relative'>
+        <noscript>
+          <a href='#'><img alt='Report' src='https://public.tableau.com/static/images/Av/AviationReport_17793133361700/Report/1_rss.png' style='border: none' /></a>
+        </noscript>
+        <object class='tableauViz' style='display:none;'>
+          <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+          <param name='embed_code_version' value='3' />
+          <param name='site_root' value='' />
+          <param name='name' value='AviationReport_17793133361700/Report' />
+          <param name='tabs' value='no' />
+          <param name='toolbar' value='yes' />
+          <param name='static_image' value='https://public.tableau.com/static/images/Av/AviationReport_17793133361700/Report/1.png' />
+          <param name='animate_transition' value='yes' />
+          <param name='display_static_image' value='yes' />
+          <param name='display_spinner' value='yes' />
+          <param name='display_overlay' value='yes' />
+          <param name='display_count' value='yes' />
+          <param name='language' value='en-US' />
+        </object>
+      </div>
+      <script type='text/javascript'>
+        var divElement = document.getElementById('viz1782291917921');
+        var vizElement = divElement.getElementsByTagName('object')[0];
+        vizElement.style.width = '100%';
+        vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px';
+        var scriptElement = document.createElement('script');
+        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+      </script>
+    </div>
+  </section>
+
+</div><!-- /container -->
+
+<!-- CTA -->
+<div class="cta" id="contact">
+  <h2>Let's Work Together</h2>
+  <p>Looking for a dedicated BI Analyst to bring actionable insights to your team?</p>
+  <div class="cta-links">
+    <a href="mailto:asgambari@gmail.com">✉ asgambari@gmail.com</a>
+    <a href="tel:+4915213879989" class="ghost">📞 +49 1521 387 9989</a>
+    <a href="#" class="ghost">💼 LinkedIn</a>
+  </div>
+</div>
+
+</body>
+</html>
+ENDOFFILE
