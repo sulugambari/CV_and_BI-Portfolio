@@ -32,7 +32,7 @@ To change how organizations interact with data by building a culture of seamless
 |------|-------------|
 | Power BI | ████████████░ Advanced |
 | Tableau | ███████████░░ Advanced |
-| Google Looker Studio | ██████████░░░ Advanced |
+| Google Looker Studio | ████████████░ Advanced |
 | Metabase | ████████████░ Advanced  |
 | Adobe Analytics | ████████░░░░░ Intermediate |
 | Salesforce CRMA+ | ████████░░░░░ Intermediate |
@@ -44,14 +44,14 @@ To change how organizations interact with data by building a culture of seamless
 
 ---
 
-## 🏆 Key Metrics Delivered
+## 🏆 Metrics shown samples
 
 | | |
 |---|---|
-| 📊 **21 Dashboards** built across 3 BI tools | 🏭 **4 Industries** covered — Insurance, Aviation, E-Commerce, Marketing |
-| 📡 **15,883 devices** tracked in real-time | 💶 **€3.7M+** in revenue analysed |
-| 🔁 **19,177 policy renewals** monitored | 📣 **382M+ impressions** tracked across ad platforms |
-| ✈️ **5,870,230 flights** monitored for quality & reliability | 🎯 **17,926 marketing leads** tracked from MQL to SQL |
+| **21 Dashboard samples** built across 3 BI tools | **4 Industries** covered — Insurance, Aviation, E-Commerce, Marketing |
+| **15,883 devices** tracked in real-time | **€3.7M+** in revenue analysed |
+| **19,177 policy renewals** monitored | **382M+ impressions** tracked across ad platforms |
+| **5,870,230 flights** monitored for quality & reliability | **17,926 marketing leads** tracked from MQL to SQL |
 
 ---
 
@@ -62,7 +62,7 @@ To change how organizations interact with data by building a culture of seamless
 ## 🏥 Industry: Insurance & Claims
 
 ### 1. KPI Performance Overview
-**Tool:** Power BI &nbsp;|&nbsp; **Problem solved:** Insurance operations teams were manually compiling claims data from multiple sources into static spreadsheets, making it impossible to monitor live KPIs. This dashboard unified all claims and policy data into a single real-time view, enabling faster decision-making on cost reserves and partner commissions.
+**Tool:** Power BI &nbsp; <br> **Problem solved:** Insurance operations teams were manually compiling claims data from multiple sources into static spreadsheets, making it impossible to monitor live KPIs. This dashboard unified all claims and policy data into a single real-time view, enabling faster decision-making on cost reserves and partner commissions.
 
 ![KPI Performance Overview](images/PowerBI_01_KPI_Performance_Overview.jpg)
 
@@ -100,14 +100,14 @@ RETURN CurrentMonth - PriorMonth
 ---
 
 ### 2. Renewal Repricing Report
-**Tool:** Tableau &nbsp;|&nbsp; **Problem solved:** Renewal teams had no visibility into which policies were at risk of lapsing after repricing. This report surfaced renewal trends by month and policy status, allowing underwriters to prioritise outreach before cancellation windows closed.
+**Tool:** Tableau &nbsp;<br>**Problem solved:** Renewal teams had no visibility into which policies were at risk of lapsing after repricing. This report surfaced renewal trends by month and policy status, allowing underwriters to prioritise outreach before cancellation windows closed.
 
 ![Renewal Repricing Report](images/Tableau_01_Renewal_Repricing_Report.jpg)
 
 ---
 
 ### 3. BDX Status Report
-**Tool:** Tableau &nbsp;|&nbsp; **Problem solved:** Partner data file ingestion (BDX files) was tracked manually via email chains, causing delays in identifying failed or missing submissions. This dashboard automated status monitoring across all partners and source types, reducing data ingestion delays significantly.
+**Tool:** Tableau &nbsp;<br>**Problem solved:** Partner data file ingestion (BDX files) was tracked manually via email chains, causing delays in identifying failed or missing submissions. This dashboard automated status monitoring across all partners and source types, reducing data ingestion delays significantly.
 
 ![BDX Status Report](images/Tableau_02_BDX_Status_Report.jpg)
 
@@ -125,21 +125,21 @@ RETURN CurrentMonth - PriorMonth
 > 🔗 **[View Live Interactive Report on Tableau Public](https://public.tableau.com/views/AviationReport_17793133361700/Report?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)**
 
 ### 5. Financial Performance
-**Tool:** Tableau &nbsp;|&nbsp; **Problem solved:** Aviation finance teams were comparing airline performance across disconnected spreadsheets with no standard metric definitions. This dashboard brought together revenue, operating margin, CASK, RASK, and load factor across 5 airlines into a single comparable view.
+**Tool:** Tableau &nbsp;<br> **Problem solved:** Aviation finance teams were comparing airline performance across disconnected spreadsheets with no standard metric definitions. This dashboard brought together revenue, operating margin, CASK, RASK, and load factor across 5 airlines into a single comparable view.
 
 ![Financial Performance](images/Tableau_04_Financial_Performance.jpg)
 
 ---
 
 ### 6. Sustainability & Efficiency
-**Tool:** Tableau &nbsp;|&nbsp; **Problem solved:** With growing pressure on airlines to report emissions data, there was no centralised view linking fuel consumption, CO2 intensity, and SAF adoption by region. This dashboard gave sustainability teams a clear picture of where efficiency gains and SAF blending were having the most impact.
+**Tool:** Tableau &nbsp;<br> **Problem solved:** With growing pressure on airlines to report emissions data, there was no centralised view linking fuel consumption, CO2 intensity, and SAF adoption by region. This dashboard gave sustainability teams a clear picture of where efficiency gains and SAF blending were having the most impact.
 
 ![Sustainability and Efficiency](images/Tableau_05_Sustainability_and_Efficiency.jpg)
 
 ---
 
 ### 7. Quality & Reliability
-**Tool:** Tableau &nbsp;|&nbsp; **Problem solved:** Operations managers needed a consistent way to benchmark on-time performance, cancellation rates, and customer satisfaction across multiple airlines and quarters. This dashboard standardised KPI definitions and enabled direct peer comparison in one view.
+**Tool:** Tableau &nbsp;<br> **Problem solved:** Operations managers needed a consistent way to benchmark on-time performance, cancellation rates, and customer satisfaction across multiple airlines and quarters. This dashboard standardised KPI definitions and enabled direct peer comparison in one view.
 
 ![Quality and Reliability](images/Tableau_06_Quality_and_Reliability.jpg)
 
@@ -148,14 +148,14 @@ RETURN CurrentMonth - PriorMonth
 ## 🛒 Industry: E-Commerce
 
 ### 8. Profitability
-**Tool:** Looker Studio &nbsp;|&nbsp; **Problem solved:** E-commerce managers were spending hours each week pulling Shopify reports manually and cross-referencing them in Excel. This dashboard connected directly to Shopify data to automate profitability reporting, surfacing order value trends and traffic source ROI at a glance.
+**Tool:** Looker Studio &nbsp;<br> **Problem solved:** E-commerce managers were spending hours each week pulling Shopify reports manually and cross-referencing them in Excel. This dashboard connected directly to Shopify data to automate profitability reporting, surfacing order value trends and traffic source ROI at a glance.
 
 ![Profitability](images/LookerStudio_01_Profitability.jpg)
 
 ---
 
 ### 9. Site and Behaviour
-**Tool:** Looker Studio &nbsp;|&nbsp; **Problem solved:** The marketing team lacked a unified view of how different user cohorts were converting across devices and channels. By combining Google Analytics session data with revenue metrics, this dashboard helped identify underperforming acquisition channels and informed budget reallocation.
+**Tool:** Looker Studio &nbsp;<br> **Problem solved:** The marketing team lacked a unified view of how different user cohorts were converting across devices and channels. By combining Google Analytics session data with revenue metrics, this dashboard helped identify underperforming acquisition channels and informed budget reallocation.
 
 ![Site and Behaviour](images/LookerStudio_02_Site_and_Behaviour.jpg)
 
@@ -205,7 +205,7 @@ LIMIT 10;
 ## 📣 Industry: Marketing
 
 ### 11. Marketing Report (KUR & Channel Performance)
-**Tool:** Power BI &nbsp;|&nbsp; **Problem solved:** Senior marketing leadership had no single report that showed cost efficiency (KUR), net revenue margin (NRM), and order volume across all channels simultaneously. This report replaced a weekly manual slide deck and enabled self-service access to live channel performance.
+**Tool:** Power BI &nbsp;<br> **Problem solved:** Senior marketing leadership had no single report that showed cost efficiency (KUR), net revenue margin (NRM), and order volume across all channels simultaneously. This report replaced a weekly manual slide deck and enabled self-service access to live channel performance.
 
 ![Marketing Report](images/PowerBI_06_Marketing_Report.jpg)
 
@@ -254,28 +254,28 @@ DIVIDE(
 ---
 
 ### 12. Performance Overview
-**Tool:** Power BI &nbsp;|&nbsp; **Problem solved:** Cross-channel performance reviews required pulling data from multiple source reports and rebuilding charts each week. This dashboard automated the aggregation of sessions, impressions, and KUR KPIs by channel, cutting weekly reporting preparation time significantly.
+**Tool:** Power BI &nbsp;<br> **Problem solved:** Cross-channel performance reviews required pulling data from multiple source reports and rebuilding charts each week. This dashboard automated the aggregation of sessions, impressions, and KUR KPIs by channel, cutting weekly reporting preparation time significantly.
 
 ![Performance Overview](images/PowerBI_07_Performance_Overview.jpg)
 
 ---
 
 ### 13. Organic Search & Brand Effects
-**Tool:** Power BI &nbsp;|&nbsp; **Problem solved:** The SEO and brand team needed a reliable way to track whether brand search volume was growing in response to campaigns. This dashboard tracked Google Search Console impressions and CTR over time, broken down by device, to measure brand visibility gains.
+**Tool:** Power BI &nbsp;<br> **Problem solved:** The SEO and brand team needed a reliable way to track whether brand search volume was growing in response to campaigns. This dashboard tracked Google Search Console impressions and CTR over time, broken down by device, to measure brand visibility gains.
 
 ![Organic Search and Brand Effects](images/PowerBI_08_Organic_Search_Brand_Effects.jpg)
 
 ---
 
 ### 14. Market Research (Segments)
-**Tool:** Power BI &nbsp;|&nbsp; **Problem solved:** Brand health survey data was delivered as raw CSVs with no ongoing trend view. This dashboard visualised ad awareness and brand awareness across target and non-target groups over time, enabling brand managers to correlate campaign spend with awareness shifts.
+**Tool:** Power BI &nbsp;<br> **Problem solved:** Brand health survey data was delivered as raw CSVs with no ongoing trend view. This dashboard visualised ad awareness and brand awareness across target and non-target groups over time, enabling brand managers to correlate campaign spend with awareness shifts.
 
 ![Market Research Segments](images/PowerBI_09_Market_Research_Segments.jpg)
 
 ---
 
 ### 15. Product Activity Revenue Report
-**Tool:** Power BI &nbsp;|&nbsp; **Problem solved:** The product team lacked a clear view of how revenue from each product cohort evolved after the signup date. By combining month-over-month revenue with cohort analysis, this dashboard helped identify which acquisition periods produced the highest long-term revenue.
+**Tool:** Power BI &nbsp;<br> **Problem solved:** The product team lacked a clear view of how revenue from each product cohort evolved after the signup date. By combining month-over-month revenue with cohort analysis, this dashboard helped identify which acquisition periods produced the highest long-term revenue.
 
 ![Product Activity Revenue Report](images/PowerBI_10_Product_Activity_Revenue_Report.jpg)
 
@@ -318,7 +318,7 @@ DIVIDE(
 ---
 
 ### 16. Marketing Lead Source
-**Tool:** Power BI &nbsp;|&nbsp; **Problem solved:** The demand generation team had no unified view of how leads progressed from creation through MQL to SQL stage. This dashboard connected CRM and marketing automation data to give leadership a live funnel view with historical trend analysis.
+**Tool:** Power BI &nbsp;<br> **Problem solved:** The demand generation team had no unified view of how leads progressed from creation through MQL to SQL stage. This dashboard connected CRM and marketing automation data to give leadership a live funnel view with historical trend analysis.
 
 ![Marketing Lead Source](images/PowerBI_11_Marketing_Lead_Source.jpg)
 
@@ -355,7 +355,7 @@ DIVIDE(
 ---
 
 ### 17. Plan vs. Actuals
-**Tool:** Power BI &nbsp;|&nbsp; **Problem solved:** Budget vs. performance reporting was done quarterly in static slides with no drill-down capability. This dashboard replaced those slides with a live view comparing planned vs. actual cost and leads by country and channel, enabling in-quarter course corrections.
+**Tool:** Power BI &nbsp;<br> **Problem solved:** Budget vs. performance reporting was done quarterly in static slides with no drill-down capability. This dashboard replaced those slides with a live view comparing planned vs. actual cost and leads by country and channel, enabling in-quarter course corrections.
 
 ![Plan vs Actuals](images/PowerBI_12_Plan_vs_Actuals.jpg)
 
@@ -364,14 +364,14 @@ DIVIDE(
 ## 📡 Industry: IoT & Device Analytics
 
 ### 18. Device Overview Map
-**Tool:** Power BI &nbsp;|&nbsp; **Problem solved:** Field operations teams had no geographic view of where devices were deployed or how they were performing. This dashboard mapped 15,883 devices across Europe with live SQF and EsNo metrics, enabling remote performance monitoring without manual field reports.
+**Tool:** Power BI &nbsp;<br> **Problem solved:** Field operations teams had no geographic view of where devices were deployed or how they were performing. This dashboard mapped 15,883 devices across Europe with live SQF and EsNo metrics, enabling remote performance monitoring without manual field reports.
 
 ![Device Overview Map](images/PowerBI_02_Device_Overview_Map.jpg)
 
 ---
 
 ### 19. KPI Differences
-**Tool:** Power BI &nbsp;|&nbsp; **Problem solved:** Quality engineers needed to quickly identify which devices had the largest deviation between two performance parameters (SQF and EsNo). This dashboard ranked all devices by differential and flagged outliers, replacing a manual spreadsheet review process.
+**Tool:** Power BI &nbsp;<br> **Problem solved:** Quality engineers needed to quickly identify which devices had the largest deviation between two performance parameters (SQF and EsNo). This dashboard ranked all devices by differential and flagged outliers, replacing a manual spreadsheet review process.
 
 ![KPI Differences](images/PowerBI_03_KPI_Differences.jpg)
 
@@ -410,20 +410,20 @@ RANKX(
 ---
 
 ### 20. SQF Intervals
-**Tool:** Power BI &nbsp;|&nbsp; **Problem solved:** Engineers needed to understand the statistical distribution of device performance to set quality thresholds. The bell-curve visualisation of EsNo values confirmed whether device performance was normally distributed and identified how many devices fell outside the acceptable interval range.
+**Tool:** Power BI &nbsp;<br> **Problem solved:** Engineers needed to understand the statistical distribution of device performance to set quality thresholds. The bell-curve visualisation of EsNo values confirmed whether device performance was normally distributed and identified how many devices fell outside the acceptable interval range.
 
 ![SQF Intervals](images/PowerBI_04_SQF_Intervals.jpg)
 
 ---
 
 ### 21. KPI Performances
-**Tool:** Power BI &nbsp;|&nbsp; **Problem solved:** Tracking whether device quality was consistent across a large fleet required comparing two measurement parameters (A and B) simultaneously across thousands of serial numbers. This dashboard enabled engineers to spot systematic deviations at scale rather than reviewing individual device logs.
+**Tool:** Power BI &nbsp;<br> **Problem solved:** Tracking whether device quality was consistent across a large fleet required comparing two measurement parameters (A and B) simultaneously across thousands of serial numbers. This dashboard enabled engineers to spot systematic deviations at scale rather than reviewing individual device logs.
 
 ![KPI Performances](images/PowerBI_05_KPI_Performances.jpg)
 
 ---
 
-## 🌐 Live Interactive Dashboard
+## 🌐 Live Interactive Dashboard Sample
 
 > This Aviation report is published live on Tableau Public — explore the full interactive version below.
 
