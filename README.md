@@ -39,51 +39,177 @@ To change how organizations interact with data by building a culture of seamless
 
 ## 📈 Portfolio Dashboards
 
-### 1. Insurance & Claims KPIs
+### Power BI
+
+#### 1. KPI Performance Overview
 * **Tool:** Power BI
-* **Overview:** Comprehensive tracking of active/closed claims, claim cost reserves, earned margins, and loss ratios. Includes deep dives into claim distribution by city and policy performance waterfalls.
+* **Overview:** Comprehensive tracking of active/closed claims, claim cost reserves, earned margins, and loss ratios. Includes claim distribution by city and policy performance waterfalls.
 
-![Power BI](images/insurance_claims_dashboard.png)
-
----
-
-### 2. Marketing & Advertising Analytics
-* **Tool:** Looker Studio & Power BI
-* **Overview:** Detailed views on acquisition and advertising across Google Ads, Meta Ads, and Amazon. Tracks KUR (Cost-Turnover Ratio), NRM, Netto Sales, CTR, and CPC. Analyzes Organic Search brand effects and customer segments. 
-
-![Marketing and Advertising Analytics Dashboard](images/marketing_analytics_dashboard.png)
+![KPI Performance Overview](images/PowerBI_01_KPI_Performance_Overview.jpg)
 
 ---
 
-### 3. E-Commerce Profitability & Site Behavior
+#### 2. Device Overview Map
+* **Tool:** Power BI
+* **Overview:** Geographic mapping of 15,883 unique serial numbers across Europe, with a detailed data table showing SQF and EsNo metrics per device.
+
+![Device Overview Map](images/PowerBI_02_Device_Overview_Map.jpg)
+
+---
+
+#### 3. KPI Differences
+* **Tool:** Power BI
+* **Overview:** Side-by-side comparison of SQF and EsNo differences per serial number, highlighting highest and lowest performing devices with visual indicators.
+
+![KPI Differences](images/PowerBI_03_KPI_Differences.jpg)
+
+---
+
+#### 4. SQF Intervals
+* **Tool:** Power BI
+* **Overview:** Bell-curve distribution of EsNo values and SQF differences across serial numbers, with interactive parameter interval value selector.
+
+![SQF Intervals](images/PowerBI_04_SQF_Intervals.jpg)
+
+---
+
+#### 5. KPI Performances
+* **Tool:** Power BI
+* **Overview:** Dual line chart comparing SQF and EsNo performance (A vs B) across all serial numbers for detailed quality benchmarking.
+
+![KPI Performances](images/PowerBI_05_KPI_Performances.jpg)
+
+---
+
+#### 6. Marketing Report
+* **Tool:** Power BI
+* **Overview:** Full marketing performance report tracking KUR, NRM, Orders, Cost, CVR, and CPO across marketing channels with a channel/campaign KPI breakdown table.
+
+![Marketing Report](images/PowerBI_06_Marketing_Report.jpg)
+
+---
+
+#### 7. Performance Overview
+* **Tool:** Power BI
+* **Overview:** Sessions and impressions by source/medium over time, with a detailed KUR KPIs table broken down by marketing channel and campaign.
+
+![Performance Overview](images/PowerBI_07_Performance_Overview.jpg)
+
+---
+
+#### 8. Organic Search & Brand Effects
+* **Tool:** Power BI
+* **Overview:** Google Search impressions and CTR trends over time, with total clicks (426K), total impressions (9,614K), and impressions distribution by device type.
+
+![Organic Search and Brand Effects](images/PowerBI_08_Organic_Search_Brand_Effects.jpg)
+
+---
+
+#### 9. Market Research (Segments)
+* **Tool:** Power BI
+* **Overview:** Ad awareness and brand awareness tracking across total, target group, and non-target group segments, plotted over time.
+
+![Market Research Segments](images/PowerBI_09_Market_Research_Segments.jpg)
+
+---
+
+#### 10. Product Activity Revenue Report
+* **Tool:** Power BI
+* **Overview:** Month-by-month revenue comparison with prior year, cohort revenue analysis after signup date, and revenue breakdown by purchase month and campaign.
+
+![Product Activity Revenue Report](images/PowerBI_10_Product_Activity_Revenue_Report.jpg)
+
+---
+
+#### 11. Marketing Lead Source
+* **Tool:** Power BI
+* **Overview:** Tracks 17,926 marketing leads, 6,985 MQLs, and 2,730 SQLs with KPI development trends across yearly, quarterly, and monthly timeframes.
+
+![Marketing Lead Source](images/PowerBI_11_Marketing_Lead_Source.jpg)
+
+---
+
+#### 12. Plan vs. Actuals
+* **Tool:** Power BI
+* **Overview:** Cost and leads development comparison between plan and actuals by year-quarter, with country-level KPIs and CPL development trend.
+
+![Plan vs Actuals](images/PowerBI_12_Plan_vs_Actuals.jpg)
+
+---
+
+### Looker Studio
+
+#### 13. Profitability
 * **Tool:** Looker Studio
-* **Overview:** Shopify-integrated dashboards tracking average order value, conversion rates, sessions, revenue by device, and cohort analysis.
+* **Overview:** Shopify-integrated dashboard tracking sessions, sales, average order value, conversion rate, and pageviews, with orders performance and sales by traffic source.
 
-![E-Commerce Profitability Dashboard](images/ecommerce_profitability_dashboard.png)
-
----
-
-### 4. Financial & Operational Performance
-* **Tool:** Tableau & Power BI
-* **Overview:** Holistic view of Plan vs. Actuals, financial breakdowns by product lines, and revenue trend analysis.
-
-![Financial and Operational Performance Dashboard](images/financial_performance_dashboard.png)
+![Profitability](images/LookerStudio_01_Profitability.jpg)
 
 ---
 
-### 5. Aviation Quality, Reliability & Sustainability
+#### 14. Site and Behaviour
+* **Tool:** Looker Studio
+* **Overview:** Google Analytics dashboard covering total revenue development, conversion trends, sessions by device category, new vs. returning users, and top revenue-generating campaigns.
+
+![Site and Behaviour](images/LookerStudio_02_Site_and_Behaviour.jpg)
+
+---
+
+#### 15. Acquisition and Advertising
+* **Tool:** Looker Studio
+* **Overview:** Multi-platform advertising dashboard integrating Google Ads, Meta Ads, and Amazon — tracking clicks, impressions, cost, CTR, ROAS, and budget vs. spend over time.
+
+![Acquisition and Advertising](images/LookerStudio_03_Acquisition_and_Advertising.jpg)
+
+---
+
+### Tableau
+
+#### 16. Renewal Repricing Report
 * **Tool:** Tableau
-* **Overview:** Dashboards monitoring active flights, cancellation rates, CO2 emissions intensity, sustainable aviation fuel (SAF) blend, and regional efficiency. Tracks customer satisfaction scores across multiple airlines.
+* **Overview:** Tracks 19,177 policy documents sent out, 16,199 active renewals, and 16,178 renewed policies, with renewal trends and policy status performance over time.
 
-![Aviation Quality and Sustainability Dashboard](images/aviation_sustainability_dashboard.png)
+![Renewal Repricing Report](images/Tableau_01_Renewal_Repricing_Report.jpg)
 
 ---
 
-### 6. BDX Status & Renewal Repricing Reports
+#### 17. BDX Status Report
 * **Tool:** Tableau
-* **Overview:** High-level monitoring of policy renewals, flagged partner BDX files, error status types, and overall policy status performance over time.
+* **Overview:** Partner BDX file tracking dashboard showing received files by partner group, file type, source type, and status — with a distribution pie chart.
 
-![BDX Status and Renewal Repricing Dashboard](images/bdx_status_dashboard.png)
+![BDX Status Report](images/Tableau_02_BDX_Status_Report.jpg)
+
+---
+
+#### 18. Flagged BDX Files
+* **Tool:** Tableau
+* **Overview:** Detailed view of flagged partner BDX files by error type and overdue days, upcoming file schedule, and flagged file performance over time.
+
+![Flagged BDX Files](images/Tableau_03_Flagged_BDX_Files.jpg)
+
+---
+
+#### 19. Financial Performance
+* **Tool:** Tableau
+* **Overview:** Airline financial performance dashboard comparing total revenue, operating income, operating margin, ASK, RASK, CASK, and load factor across multiple carriers over time.
+
+![Financial Performance](images/Tableau_04_Financial_Performance.jpg)
+
+---
+
+#### 20. Sustainability & Efficiency
+* **Tool:** Tableau
+* **Overview:** CO2 intensity performance, regional efficiency map, distance vs. fuel burn scatter analysis, and fuel composition breakdown tracking sustainable aviation fuel (SAF) adoption.
+
+![Sustainability and Efficiency](images/Tableau_05_Sustainability_and_Efficiency.jpg)
+
+---
+
+#### 21. Quality & Reliability
+* **Tool:** Tableau
+* **Overview:** Service delivery performance tracking completion rates, delay rates, and cancellation rates for 5 airlines, with customer satisfaction scores and KPI tracking table.
+
+![Quality and Reliability](images/Tableau_06_Quality_and_Reliability.jpg)
 
 ---
 
