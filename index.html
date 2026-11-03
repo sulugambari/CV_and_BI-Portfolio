@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Abdulrahman Sulu-Gambari — Senior BI Analyst</title>
+  <title>Abdulrahman Sulu-Gambari — AI Project Manager &amp; BI Analyst</title>
   <style>
 :root {
   --teal:       #1a6b68;
@@ -159,6 +159,23 @@
     .about-card { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; }
     .about-card h3 { font-size: 1rem; font-weight: 700; color: var(--teal); margin-bottom: .75rem; }
     .about-card p { font-size: .9rem; color: var(--mid); }
+
+    /* AI PROJECTS */
+    .ai-intro { font-size: .95rem; color: var(--mid); margin-bottom: 1.75rem; max-width: 760px; }
+    .project-grid { display: grid; gap: 1.75rem; }
+    .project-card { background: var(--white); border: 1px solid var(--border); border-left: 4px solid var(--teal); border-radius: 0 12px 12px 0; padding: 1.5rem; box-shadow: 0 1px 4px rgba(0,0,0,.06); }
+    .project-card h3 { font-size: 1.15rem; font-weight: 700; color: var(--dark); }
+    .project-card .proj-meta { font-size: .8rem; color: var(--muted); margin: .2rem 0 .8rem; }
+    .project-card .proj-meta a { color: var(--teal); }
+    .project-card p { font-size: .9rem; color: var(--mid); margin-bottom: .6rem; }
+    .project-card p strong { color: var(--dark); }
+    .proj-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: .75rem; margin: 1rem 0; }
+    .proj-stat { background: var(--teal-light); border-radius: 8px; padding: .65rem .8rem; }
+    .proj-stat .num { font-size: 1.25rem; font-weight: 800; color: var(--teal-dark); line-height: 1.1; }
+    .proj-stat .label { font-size: .72rem; color: var(--mid); margin-top: .2rem; }
+    .proj-links { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: .8rem; }
+    .proj-links a { font-size: .8rem; font-weight: 600; color: var(--white); background: var(--teal); padding: .4rem .9rem; border-radius: 6px; text-decoration: none; }
+    .proj-links span.private { font-size: .8rem; color: var(--muted); padding: .4rem 0; }
   </style>
 </head>
 <body>
@@ -170,7 +187,8 @@
     <li><a href="#profile">Profile</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#skills">Skills</a></li>
-    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#ai-projects">AI Projects</a></li>
+    <li><a href="#portfolio">BI Portfolio</a></li>
     <li><a href="#live">Live Demo</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -179,11 +197,13 @@
 <!-- HERO -->
 <div class="hero">
   <h1>Abdulrahman <span>Sulu-Gambari</span></h1>
-  <div class="title">Senior Business Intelligence Analyst &nbsp;·&nbsp; BI Developer &nbsp;·&nbsp; BI Architect &nbsp;·&nbsp; Data Analyst</div>
+  <div class="title">AI Project Manager &nbsp;·&nbsp; Senior Business Intelligence Analyst &nbsp;·&nbsp; BI Architect</div>
   <div class="badges">
-    <a class="badge filled" href="mailto:asgambari@gmail.com">✉ asgambari@gmail.com</a>
+    <a class="badge filled" href="CV_Abdul_Sulu-Gambari.pdf" target="_blank">⬇ Download CV (PDF)</a>
+    <a class="badge" href="mailto:asgambari@gmail.com">✉ asgambari@gmail.com</a>
     <a class="badge" href="tel:+4915213879989">📞 +49 1521 387 9989</a>
     <a class="badge" href="https://linkedin.com/in/sulu-gambari" target="_blank">💼 linkedin.com/in/sulu-gambari</a>
+    <a class="badge" href="https://github.com/sulugambari" target="_blank">⌨ github.com/sulugambari</a>
     <a class="badge" href="#">📍 Duisburg, Germany</a>
   </div>
 </div>
@@ -206,6 +226,7 @@
           <div class="cv-contact-item"><span class="cv-contact-icon">📞</span>+49 1521 387 9989</div>
           <div class="cv-contact-item"><span class="cv-contact-icon">📍</span>Duisburg, Germany</div>
           <div class="cv-contact-item"><span class="cv-contact-icon">💼</span><a href="https://linkedin.com/in/sulu-gambari" target="_blank">linkedin.com/in/sulu-gambari</a></div>
+          <div class="cv-contact-item"><span class="cv-contact-icon">⌨</span><a href="https://github.com/sulugambari" target="_blank">github.com/sulugambari</a></div>
         </div>
 
         <div class="cv-sidebar-block">
@@ -213,7 +234,7 @@
           <div class="edu-item">
             <div class="degree">Specialisation in AI Project Management</div>
             <div class="school">neuefische GmbH</div>
-            <div class="location">Berlin, Germany</div>
+            <div class="location">Berlin, Germany · May – Oct 2026</div>
           </div>
           <div class="edu-item">
             <div class="degree">Master's in Computational Data Science Management</div>
@@ -246,7 +267,7 @@
       <!-- MAIN PROFILE -->
       <div>
         <div class="cv-profile">
-          I am an accomplished Data professional with <strong>10+ years of overall experience</strong>, specializing in driving strategic decisions through advanced BI, data analytics, and workflow automation. Proven expert in leading cross-functional teams to translate complex requirements into actionable business insights. Highly skilled in engineering high-impact dashboards (Power BI, Tableau, and others) and integrating web analytics and AI project management to optimize operational efficiency.
+          I am an <strong>AI Project Manager and Senior BI Analyst</strong> with <strong>13+ years</strong> in data, analytics and IT delivery. Certified in AI Project Management (neuefische GmbH, 2026), I delivered four end-to-end AI/ML projects there, including a predictive quality-control model for a <strong>TU Berlin research lab</strong> and a permission-aware <strong>RAG agent</strong> with human-in-the-loop approval (see <a href="#ai-projects" style="color:var(--teal)">AI Projects</a>). I scope ambiguous problems into measurable success criteria, set release thresholds before results are in, and report limitations as plainly as wins. In my day job I lead a BI team owning 25+ executive dashboards, GA4 analytics and automated reporting pipelines.
         </div>
       </div>
 
@@ -334,15 +355,33 @@
       </ul>
     </div>
 
-      </div><!-- /right column -->
-    </div><!-- /cv-grid -->
-  </section><!-- /profile+experience section -->
+  </section><!-- /experience -->
 
   <!-- SKILLS -->
   <section id="skills">
     <h2 class="section-title">🛠️ Skills</h2>
 
     <div class="skills-blocks">
+      <div class="skill-block">
+        <h4>AI Project Management</h4>
+        <ul>
+          <li>AI/ML Lifecycle &amp; Roadmapping</li>
+          <li>Product Briefs &amp; User Stories</li>
+          <li>Release Criteria &amp; Go/No-Go</li>
+          <li>RACI · OKRs &amp; KPIs</li>
+          <li>GDPR &amp; EU AI Act</li>
+        </ul>
+      </div>
+      <div class="skill-block">
+        <h4>Applied AI &amp; ML</h4>
+        <ul>
+          <li>RAG &amp; Hybrid Retrieval</li>
+          <li>Tool-calling LLM Agents</li>
+          <li>Evaluation Harnesses</li>
+          <li>scikit-learn · AutoGluon · XGBoost</li>
+          <li>FastAPI · Streamlit · Docker</li>
+        </ul>
+      </div>
       <div class="skill-block">
         <h4>BI & Visualization</h4>
         <ul>
@@ -419,6 +458,77 @@
   </section>
 
 </div><!-- /container -->
+
+<!-- AI PROJECTS DIVIDER -->
+<div class="portfolio-divider" id="ai-projects">
+  <h2>AI &amp; Machine Learning <span>Projects</span></h2>
+  <p>Four end-to-end projects from the neuefische AI Project Management programme, 2026</p>
+</div>
+
+<div class="container">
+  <section id="ai-project-list">
+    <p class="ai-intro">Each project ran on a real board with written success criteria agreed up front. Results are reported against those criteria, limitations included.</p>
+    <div class="project-grid">
+
+      <div class="project-card">
+        <div class="card-meta"><span class="tag tag-tool">Predictive ML</span><span class="tag tag-industry">Life Sciences</span><span class="tag tag-tool">Capstone</span></div>
+        <h3>SpecTune: Predictive QC for Mass Spectrometry</h3>
+        <div class="proj-meta">Client: Rappsilber Lab, TU Berlin · Sep – Oct 2026 · Team of 3 · My role: Data &amp; Modelling Lead, owner of MVP and roadmap</div>
+        <p><strong>Problem:</strong> Lab analysts checked every weekly instrument run by hand against SOP thresholds, which was slow and led to inconsistent decisions. SpecTune answers <em>“is the machine ready for today’s samples?”</em> from the raw signal alone.</p>
+        <p><strong>What I built:</strong> <em>SpecXtract</em>, a Python pipeline that turns ~300 GB of Thermo .raw files into per-run QC features. It pulls straight from the lab’s cloud share, runs extractions in parallel, and was validated 100% against the lab’s reference tool on 365,000+ scans. I then ran a four-candidate model selection with cross-validation that held out whole days. The decision rule was agreed with the client: a missed faulty run counts 3× a false alarm.</p>
+        <div class="proj-stats">
+          <div class="proj-stat"><div class="num">14 / 15</div><div class="label">unseen runs graded correctly</div></div>
+          <div class="proj-stat"><div class="num">5 / 5</div><div class="label">faulty runs caught</div></div>
+          <div class="proj-stat"><div class="num">8 / 8</div><div class="label">sealed final test</div></div>
+          <div class="proj-stat"><div class="num">0.978</div><div class="label">AUC, chosen sparse logistic model</div></div>
+        </div>
+        <p><strong>Delivery:</strong> Model designs were frozen before building, and predictions were locked before the lab revealed grades. CI and pre-commit guardrails kept model files out of git. A versioned model was released on Hugging Face, with a React prototype and FastAPI model server built by the team. The test set is small, so the final report gives confidence intervals rather than a headline accuracy.</p>
+        <div class="proj-links"><span class="private">🔒 Client project — repository and model are private</span></div>
+      </div>
+
+      <div class="project-card">
+        <div class="card-meta"><span class="tag tag-tool">RAG · LLM Agent</span><span class="tag tag-industry">Enterprise Knowledge</span></div>
+        <h3>Northstar Release Coordinator</h3>
+        <div class="proj-meta">AI Agent Project · Aug – Sep 2026 · Team of 2, I led the build · Python, FastAPI, Streamlit, Chroma, Docker</div>
+        <p><strong>Problem:</strong> Deciding whether a release can ship meant reconciling a release brief, GitHub issues, Slack threads and email, about 20 minutes per question. Picking up a stale email gives a customer the wrong date.</p>
+        <p><strong>What I built:</strong> An internal assistant that answers from 6 source types (Slack, email, docs, a live GitHub repo, an exported GitHub snapshot and SQLite) with cited answers. Role-based filtering runs <em>before</em> retrieval, so restricted records never reach the model. A tool-calling agent can only <em>propose</em> actions, and a separate human approval executes them.</p>
+        <div class="proj-stats">
+          <div class="proj-stat"><div class="num">0</div><div class="label">release blockers across 53 scored runs</div></div>
+          <div class="proj-stat"><div class="num">11 / 11</div><div class="label">approval-gate checks passed</div></div>
+          <div class="proj-stat"><div class="num">11 s</div><div class="label">p50 answer latency (target 30 s)</div></div>
+          <div class="proj-stat"><div class="num">16 / 16</div><div class="label">clean-start container checks</div></div>
+        </div>
+        <p><strong>Delivery:</strong> Thresholds were fixed before testing, and decisions, findings and the threat model were kept in versioned logs. My release call was “demonstrate with explicit limitations”, and the incomplete model comparison is stated rather than hidden.</p>
+        <div class="proj-links"><a href="https://github.com/sulugambari/ai-agent-project" target="_blank">View on GitHub ↗</a></div>
+      </div>
+
+      <div class="project-card">
+        <div class="card-meta"><span class="tag tag-tool">Regression · Classification</span><span class="tag tag-industry">Aviation</span></div>
+        <h3>Tunisair Flight-Delay Prediction</h3>
+        <div class="proj-meta">ML Project (Zindi challenge) · Jul 2026 · Team of 2 · scikit-learn, XGBoost, Streamlit</div>
+        <p><strong>Problem:</strong> Predict departure delay for Tunisair flights, framed for two audiences: the airline operations team and travellers at booking time.</p>
+        <p><strong>Approach:</strong> Benchmarked 5 models on 107,833 flights with time-aware tuning. Error analysis showed the severe-delay tail is driven by knock-on delays from the previous flight, so the traveller-facing product was reframed as a calibrated risk classifier inside a Streamlit “Delay-Alert” app. The 7-day sprint ran on a GitHub project board with 31 issues and 15 PRs, and closed with a retrospective.</p>
+        <div class="proj-stats">
+          <div class="proj-stat"><div class="num">−24%</div><div class="label">RMSE vs. baseline (108.6 vs 142.0 min)</div></div>
+          <div class="proj-stat"><div class="num">0.80</div><div class="label">ROC-AUC, 15+ min delay risk</div></div>
+        </div>
+        <div class="proj-links"><a href="https://github.com/AlexDeWilde/0721-ds-ml-project-template" target="_blank">View on GitHub ↗</a></div>
+      </div>
+
+      <div class="project-card">
+        <div class="card-meta"><span class="tag tag-tool">EDA · SQL</span><span class="tag tag-industry">Real Estate</span></div>
+        <h3>King County Luxury Real-Estate Analysis</h3>
+        <div class="proj-meta">EDA Project · Jun 2026 · Team of 2 · Python, PostgreSQL, Plotly</div>
+        <p>Analysed 21,597 home sales pulled from PostgreSQL to advise a luxury buyer persona. Four hypotheses were tested and confirmed. The work ended in a shortlist on interactive maps and a client deck.</p>
+        <div class="proj-stats">
+          <div class="proj-stat"><div class="num">+106%</div><div class="label">waterfront price-per-sq-ft premium</div></div>
+          <div class="proj-stat"><div class="num">$300–400K</div><div class="label">estimated saving buying in summer</div></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</div>
 
 <!-- PORTFOLIO DIVIDER -->
 <div class="portfolio-divider" id="portfolio">
@@ -779,11 +889,12 @@
 <!-- CTA -->
 <div class="cta" id="contact">
   <h2>Let's Work Together</h2>
-  <p>Looking for a dedicated BI Analyst to bring actionable insights to your team?</p>
+  <p>Looking for an AI Project Manager or BI lead who turns data into decisions?</p>
   <div class="cta-links">
     <a href="mailto:asgambari@gmail.com">✉ asgambari@gmail.com</a>
     <a href="tel:+4915213879989" class="ghost">📞 +49 1521 387 9989</a>
     <a href="https://linkedin.com/in/sulu-gambari" target="_blank" class="ghost">💼 LinkedIn</a>
+    <a href="https://github.com/sulugambari" target="_blank" class="ghost">⌨ GitHub</a>
   </div>
 </div>
 
