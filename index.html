@@ -176,6 +176,16 @@
     .proj-links { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: .8rem; }
     .proj-links a { font-size: .8rem; font-weight: 600; color: var(--white); background: var(--teal); padding: .4rem .9rem; border-radius: 6px; text-decoration: none; }
     .proj-links span.private { font-size: .8rem; color: var(--muted); padding: .4rem 0; }
+
+    /* LIVE DEMOS */
+    .demo-block { margin-top: 3rem; }
+    .demo-block > h3 { font-size: 1.15rem; font-weight: 700; color: var(--dark); margin-bottom: .35rem; }
+    .demo-block > p { font-size: .9rem; color: var(--mid); margin-bottom: 1rem; max-width: 820px; }
+    .demo-block .note { font-size: .8rem; color: var(--muted); }
+    .demo-frame { border-radius: 12px; overflow: hidden; border: 1px solid var(--border); background: var(--white); }
+    .demo-frame iframe { display: block; width: 100%; border: 0; }
+    .demo-frame + .demo-frame { margin-top: 1.25rem; }
+    .demo-open { display: inline-block; margin-top: .75rem; font-size: .8rem; font-weight: 600; color: var(--white); background: var(--teal); padding: .4rem .9rem; border-radius: 6px; text-decoration: none; }
   </style>
 </head>
 <body>
@@ -189,7 +199,7 @@
     <li><a href="#skills">Skills</a></li>
     <li><a href="#ai-projects">AI Projects</a></li>
     <li><a href="#portfolio">BI Portfolio</a></li>
-    <li><a href="#live">Live Demo</a></li>
+    <li><a href="#live">Live Demos</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
@@ -845,7 +855,7 @@
 
   <!-- LIVE TABLEAU -->
   <section id="live">
-    <h2 class="section-title">🌐 Live Interactive Dashboard</h2>
+    <h2 class="section-title">🌐 Live Interactive Dashboards &amp; Apps</h2>
     <div class="live-banner">
       <h3>Aviation Report — Published on Tableau Public</h3>
       <p>This is a fully interactive live report. Explore filters, drill-downs, and tooltips directly below.</p>
@@ -881,6 +891,24 @@
         scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
         vizElement.parentNode.insertBefore(scriptElement, vizElement);
       </script>
+    </div>
+
+    <div class="demo-block">
+      <div class="card-meta"><span class="tag tag-tool">RAG · LLM Agent</span><span class="tag tag-industry">AI Project</span></div>
+      <h3>Northstar Release Coordinator — Project Showcase</h3>
+      <p>A scrollable case file for my permission-aware AI agent. It walks through the problem, the threat model, the proof that restricted records never reach the model, the approval gate, and the release decision, using the project's real evaluation charts. The agent itself runs locally in Docker and needs private LLM API keys, so this page presents its evidence rather than a live chat.</p>
+      <div class="demo-frame"><iframe src="apps/northstar-showcase.html" title="Northstar Release Coordinator project showcase" height="720" loading="lazy"></iframe></div>
+      <a class="demo-open" href="apps/northstar-showcase.html" target="_blank">Open full screen ↗</a>
+      <a class="demo-open" href="https://github.com/sulugambari/ai-agent-project" target="_blank">Source on GitHub ↗</a>
+    </div>
+
+    <div class="demo-block">
+      <div class="card-meta"><span class="tag tag-tool">Plotly · Python</span><span class="tag tag-industry">Real Estate</span></div>
+      <h3>King County Luxury Real-Estate — Interactive Maps</h3>
+      <p>Two maps from my EDA project on 21,597 King County home sales. The first shows the client’s final shortlist: the 4 renovated, Grade 11+ waterfront homes. The second maps 253 luxury homes across the elite zip codes, coloured by size ratio against their neighbours. Hover over a point for price, grade, living area and renovation year. Drag to pan and scroll to zoom.</p>
+      <div class="demo-frame"><iframe src="apps/king-county-target-map.html" title="Client target properties map" height="560" loading="lazy"></iframe></div>
+      <div class="demo-frame"><iframe src="apps/king-county-trophy-map.html" title="King County trophy-house areas map" height="560" loading="lazy"></iframe></div>
+      <p class="note" style="margin-top:.6rem">Map data © OpenStreetMap contributors.</p>
     </div>
   </section>
 
